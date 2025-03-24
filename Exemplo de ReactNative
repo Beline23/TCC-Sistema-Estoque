@@ -1,0 +1,103 @@
+Exemplo em React NativeEstrutura do Projeto
+Um formulário para adicionar produtos.
+Uma lista para exibir os produtos.
+Botões para adicionar ou remover itens do estoque.
+Código React Native
+javascript
+Copy
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, FlatList, StyleSheet } from 'react-native';
+
+const App = () => {
+  const [products, setProducts] = useState([]);
+  const [name, setName] = useState('');
+  const [quantity, setQuantity] = useState('');
+
+  const addProduct = () => {
+    if (name && quantity) {
+      setProducts([...products, { id: Date.now().toString(), name, quantity: parseInt(quantity) }]);
+      setName('');
+      setQuantity('');
+    }
+  };
+
+  const updateQuantity = (id, change) => {
+    setProducts(products.map(product =>
+      product.id === id
+        ? { ...product, quantity: Math.max(0, product.quantity + change) }
+        : product
+    ));
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Gerenciamento de Estoque</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Nome do Produto"
+        value={name}
+        onChangeText={setName}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Quantidade"
+        value={quantity}
+        onChangeText={setQuantity}
+        keyboardType="numeric"
+      />
+      <Button title="Adicionar Produto" onPress={addProduct} />
+      <FlatList
+        data={products}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.productItem}>
+            <Text style={styles.productName}>{item.name}</Text>
+            <Text style={styles.productQuantity}>Quantidade: {item.quantity}</Text>
+            <View style={styles.buttonsContainer}>
+              <Button title="-" onPress={() => updateQuantity(item.id, -1)} />
+              <Button title="+" onPress={() => updateQuantity(item.id, 1)} />
+            </View>
+          </View>
+        )}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
+    marginBottom: 10,
+    borderRadius: 5,
+  },
+  productItem: {
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+  },
+  productName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  productQuantity: {
+    fontSize: 16,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 10,
+  },
+});
+
+export default App;
