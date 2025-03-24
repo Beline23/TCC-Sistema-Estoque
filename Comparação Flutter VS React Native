@@ -1,0 +1,33 @@
+Comparação entre Flutter e React Native
+Característica
+Flutter
+React Native
+Linguagem
+Dart
+JavaScript/TypeScript
+Performance
+Alto (compilação nativa)
+Bom (com bridge JavaScript-Nativo)
+UI
+Widgets próprios
+Componentes nativos
+Hot Reload
+Sim
+Sim
+Comunidade
+Crescente
+Muito grande
+Curva de Aprendizado
+Média (Dart é nova para muitos)
+Baixa (JavaScript é popular)
+Ecossistema
+Menor, mas em crescimento
+Muito grandePróximos Passos
+Escolha um framework com base no seu conhecimento prévio e nos requisitos do projeto.
+Siga tutoriais e documentação oficial:
+Flutter: flutter.dev
+React Native: reactnative.dev
+Crie projetos pequenos para praticar:
+Um app de lista de tarefas (To-Do List).
+Um app de clima consumindo uma API.
+Um app de notícias com navegação entre telas.
