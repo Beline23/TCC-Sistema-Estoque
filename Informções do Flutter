@@ -1,0 +1,53 @@
+Flutter
+Flutter é um framework desenvolvido pelo Google, que utiliza a linguagem Dart. Ele é conhecido por sua alta performance e por oferecer widgets altamente customizáveis.
+Por que usar Flutter?
+Desempenho: Compila código nativo (sem intermediários como WebViews).
+Widgets ricos: Oferece uma ampla gama de componentes de UI.
+Hot Reload: Permite ver as mudanças no código em tempo real.
+Comunidade ativa: Crescente e com muitos pacotes disponíveis.
+O que você precisa aprender para começar com Flutter?
+Dart (Linguagem de Programação):
+Sintaxe básica (variáveis, loops, funções).
+Programação orientada a objetos (classes, herança, mixins).
+Assincronismo (Futures, async/await).
+Estrutura do Flutter:
+Widgets: Tudo em Flutter é um widget (componente de UI).
+StatelessWidget: Para componentes estáticos.
+StatefulWidget: Para componentes com estado mutável.
+Árvore de Widgets: Como os widgets são organizados hierarquicamente.
+Material Design e Cupertino: Bibliotecas para criar interfaces no estilo Android e iOS.
+Gerenciamento de Estado:
+setState: Para gerenciar estados simples.
+Provider: Biblioteca popular para gerenciamento de estado.
+Bloc/Cubit: Padrão avançado para gerenciamento de estado.
+Navegação:
+Navigator: Para navegar entre telas.
+Rotas nomeadas: Para gerenciar rotas de forma organizada.
+Integração com APIs:
+HTTP: Para consumir APIs RESTful.
+JSON: Serialização e desserialização de dados.
+Pacotes Úteis:
+flutter_bloc: Para gerenciamento de estado com Bloc.
+http: Para requisições HTTP.
+shared_preferences: Para armazenamento local simples.
+firebase_core: Para integração com Firebase.
+Exemplo Básico em Flutter
+dart
+Copy
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('Olá, Flutter!')),
+        body: Center(child: Text('Bem-vindo ao Flutter!')),
+      ),
+    );
+  }
+}
